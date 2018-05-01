@@ -1,0 +1,58 @@
+{
+  "name": "integreat-adapter-soap",
+  "version": "0.0.1",
+  "description": "SOAP adapter for Integreat",
+  "main": "index.js",
+  "author": "Kjell-Morten Bratsberg Thorsen <post@kjellmorten.no>",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js",
+    "test": "nyc --reporter=text-summary ava",
+    "test:watch": "ava --watch",
+    "dev": "npm test:watch",
+    "prebuild": "npm run lint && npm run test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "nyc:report": "nyc report",
+    "lint": "standard"
+  },
+  "ava": {
+    "files": [
+      "lib/**/*-test.js",
+      "tests/**/*-test.js",
+      "tests/helpers/*.js"
+    ],
+    "source": [
+      "lib/**/!(*-test).js",
+      "index.js"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "**/*-test.js",
+      "tests/helpers/*.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/integreat-io/integreat-adapter-soap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/integreat-io/integreat-adapter-soap/issues"
+  },
+  "homepage": "https://github.com/integreat-io/integreat-adapter-soap#readme",
+  "engines": {
+    "node": ">= 8.6",
+    "npm": ">= 5.4"
+  },
+  "dependencies": {
+    "xml-js": "^1.6.2"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-preset-env": "^1.6.1",
+    "coveralls": "^3.0.0",
+    "nyc": "^11.7.1",
+    "sinon": "^5.0.1",
+    "standard": "^11.0.1"
+  }
+}
