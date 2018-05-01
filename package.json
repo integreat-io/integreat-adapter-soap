@@ -9,7 +9,7 @@
     "start": "node index.js",
     "test": "nyc --reporter=text-summary ava",
     "test:watch": "ava --watch",
-    "dev": "npm test:watch",
+    "dev": "npm run test:watch",
     "prebuild": "npm run lint && npm run test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "nyc:report": "nyc report",
@@ -45,12 +45,14 @@
     "npm": ">= 5.4"
   },
   "dependencies": {
+    "dot-prop": "^4.2.0",
     "xml-js": "^1.6.2"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-preset-env": "^1.6.1",
     "coveralls": "^3.0.0",
+    "nock": "^9.2.5",
     "nyc": "^11.7.1",
     "sinon": "^5.0.1",
     "standard": "^11.0.1"
