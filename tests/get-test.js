@@ -32,8 +32,9 @@ test('should get soap response and return js object', async (t) => {
   }
 
   const response = await adapter.send(request)
+  const data = await adapter.normalize(response.data, request)
 
   t.truthy(response)
   t.is(response.status, 'ok')
-  t.deepEqual(response.data, expectedData)
+  t.deepEqual(data, expectedData)
 })
