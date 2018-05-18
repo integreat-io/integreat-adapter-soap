@@ -41,14 +41,9 @@ test('should get soap response and return js object', async (t) => {
 })
 
 test('should get soap response from soap request', async (t) => {
-  // const requestBody = `<?xml version='1.0' ?>
-  // <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  //   <soap:Body>
-  //     <GetPaymentMethods xmlns="http://api1.test/webservices" />
-  //   </soap:Body>
-  // </soap:Envelope>`
+  const requestBody = /<\?xml\s+version="1\.0"\s+encoding="utf-8"\?>\s*<soap:Envelope\s+xmlns:soap="http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\/">\s*<soap:Body>\s*<GetInvoices\s+xmlns="http:\/\/api1\.test\/webservices">\s*<searchParams>\s*<CustomerIds>\s*<int>18003<\/int>\s*<\/CustomerIds>\s*<InvoiceIds>\s*<int>341101<\/int>\s*<int>341102<\/int>\s*<\/InvoiceIds>\s*<\/searchParams>\s*<invoiceReturnProperties>\s*<string>InvoiceId<\/string>\s*<string>CustomerId<\/string>\s*<string>CustomerName<\/string>\s*<string>OrderStatus<\/string>\s*<\/invoiceReturnProperties>\s*<\/GetInvoices>\s*<\/soap:Body>\s*<\/soap:Envelope>/
   nock('http://api1.test')
-    .post('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
+    .post('/Economy/InvoiceOrder/V001/InvoiceService.asmx', requestBody)
     .reply(200, soapResponseInvoices)
   const request = {
     action: 'GET',
