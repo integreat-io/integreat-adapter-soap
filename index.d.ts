@@ -1,7 +1,9 @@
 // Definitions file for integreat-adapter-soap
 
-export const authentication: string
-export function prepareEndpoint(endpointOptions: object, serviceOptions: object): object
-export function send(request: object): Promise<object>
-export function normalize(data: object, request: object): Promise<object>
-export function serialize(data: object, request: object): Promise<object>
+export const adapter: {
+  authentication: string,
+  prepareEndpoint: (endpointOptions: object, serviceOptions: object) => object,
+  send: (request: object) => Promise<object>,
+  normalize: (data: object, request: object) => Promise<object>,
+  serialize: (data: object, request: object) => Promise<object>
+}
