@@ -11,7 +11,7 @@ Adapter that lets
 
 ### Prerequisits
 
-Requires node v8.6 and Integreat v0.6.
+Requires node v8.6 and Integreat v0.7.
 
 ### Installing and using
 
@@ -43,7 +43,9 @@ Example source configuration:
   id: 'store',
   adapter: 'soap',
   auth: 'soapAuth',
-  baseUri: 'https://api.soapheaven.com',
+  options: {
+    baseUri: 'https://api.soapheaven.com'
+  },
   endpoints: [
     {options: {uri: '/getDocuments'}}
   ]
