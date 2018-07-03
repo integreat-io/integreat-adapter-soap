@@ -46,15 +46,15 @@
   },
   "dependencies": {
     "dot-prop": "^4.2.0",
-    "xml-js": "^1.6.4"
+    "xml-js": "^1.6.7"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-preset-env": "^1.7.0",
-    "coveralls": "^3.0.1",
-    "nock": "^9.3.2",
+    "coveralls": "^3.0.2",
+    "nock": "^9.4.1",
     "nyc": "^12.0.2",
-    "sinon": "^6.0.0",
+    "sinon": "^6.1.0",
     "standard": "^11.0.1"
   }
 }
