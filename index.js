@@ -1,5 +1,1 @@
-const adapter = require('./lib/adapter')
-
-module.exports = {
-  adapter
-}
+module.exports = require('./lib/adapter')

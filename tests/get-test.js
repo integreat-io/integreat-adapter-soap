@@ -3,8 +3,7 @@ import nock from 'nock'
 import soapResponse from './helpers/soap1'
 import soapResponseInvoices from './helpers/soap4'
 
-import soap from '..'
-const { adapter } = soap
+import adapter from '..'
 
 // Helpers
 
