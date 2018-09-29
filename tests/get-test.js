@@ -4,7 +4,7 @@ import soapResponse from './helpers/soap1'
 import soapResponseInvoices from './helpers/soap4'
 
 import soap from '..'
-const {adapter} = soap
+const { adapter } = soap
 
 // Helpers
 
@@ -27,8 +27,8 @@ test('should get soap response and return js object', async (t) => {
   }
   const expectedData = {
     PaymentMethod: [
-      {Id: '1', Name: 'Cash'},
-      {Id: '2', Name: 'Invoice'}
+      { Id: '1', Name: 'Cash' },
+      { Id: '2', Name: 'Invoice' }
     ]
   }
 
@@ -69,12 +69,12 @@ test('should get soap response from soap request', async (t) => {
     }
   }
   const expectedData = [
-    {InvoiceId: '341101', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'Invoiced'},
-    {InvoiceId: '341102', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'ForInvoicing'}
+    { InvoiceId: '341101', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'Invoiced' },
+    { InvoiceId: '341102', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'ForInvoicing' }
   ]
 
   const requestData = await adapter.serialize(request.data, request)
-  const response = await adapter.send({...request, data: requestData})
+  const response = await adapter.send({ ...request, data: requestData })
   const data = await adapter.normalize(response.data, request)
 
   t.truthy(response)
