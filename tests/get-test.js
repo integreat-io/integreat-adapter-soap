@@ -32,7 +32,7 @@ test('should get soap response and return js object', async (t) => {
   }
 
   const response = await adapter.send(request)
-  const data = await adapter.normalize(response.data, request)
+  const data = await adapter.normalize(response, request)
 
   t.truthy(response)
   t.is(response.status, 'ok')
@@ -72,9 +72,9 @@ test('should get soap response from soap request', async (t) => {
     { InvoiceId: '341102', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'ForInvoicing' }
   ]
 
-  const requestData = await adapter.serialize(request.data, request)
+  const requestData = await adapter.serialize(request)
   const response = await adapter.send({ ...request, data: requestData })
-  const data = await adapter.normalize(response.data, request)
+  const data = await adapter.normalize(response, request)
 
   t.truthy(response)
   t.is(response.status, 'ok')
