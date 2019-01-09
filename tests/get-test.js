@@ -68,8 +68,8 @@ test('should get soap response from soap request', async (t) => {
     }
   }
   const expectedData = [
-    { InvoiceId: '341101', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'Invoiced' },
-    { InvoiceId: '341102', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'ForInvoicing' }
+    { InvoiceId: '341101', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'Invoiced', IncludeVAT: null },
+    { InvoiceId: '341102', CustomerId: '18003', CustomerName: 'Client Inc', OrderStatus: 'ForInvoicing', IncludeVAT: 'true' }
   ]
 
   const serializedRequest = await adapter.serialize(request)

@@ -8,12 +8,14 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
           <CustomerId>18003</CustomerId>
           <CustomerName>Client Inc</CustomerName>
           <OrderStatus>Invoiced</OrderStatus>
+          <IncludeVAT xsi:nil="true" />
         </InvoiceOrder>
         <InvoiceOrder>
           <InvoiceId>341102</InvoiceId>
           <CustomerId>18003</CustomerId>
           <CustomerName>Client Inc</CustomerName>
           <OrderStatus>ForInvoicing</OrderStatus>
+          <IncludeVAT>true</IncludeVAT>
         </InvoiceOrder>
       </GetInvoicesResult>
     </GetInvoicesResponse>
