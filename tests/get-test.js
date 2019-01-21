@@ -41,13 +41,13 @@ test('should get soap response and return js object', async (t) => {
 
 test('should get soap response from soap request', async (t) => {
   const requestBody = /<\?xml\s+version="1\.0"\s+encoding="utf-8"\?>\s*<soap:Envelope\s+xmlns:soap="http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\/">\s*<soap:Body>\s*<GetInvoices\s+xmlns="http:\/\/api1\.test\/webservices">\s*<searchParams>\s*<CustomerIds>\s*<int>18003<\/int>\s*<\/CustomerIds>\s*<InvoiceIds>\s*<int>341101<\/int>\s*<int>341102<\/int>\s*<\/InvoiceIds>\s*<\/searchParams>\s*<invoiceReturnProperties>\s*<string>InvoiceId<\/string>\s*<string>CustomerId<\/string>\s*<string>CustomerName<\/string>\s*<string>OrderStatus<\/string>\s*<\/invoiceReturnProperties>\s*<\/GetInvoices>\s*<\/soap:Body>\s*<\/soap:Envelope>/
-  nock('http://api1.test')
+  nock('http://api2.test')
     .post('/Economy/InvoiceOrder/V001/InvoiceService.asmx', requestBody)
     .reply(200, soapResponseInvoices)
   const request = {
     action: 'GET',
     endpoint: {
-      uri: 'http://api1.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
+      uri: 'http://api2.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
       path: 'GetInvoicesResponse.GetInvoicesResult.InvoiceOrder',
       namespace: 'http://api1.test/webservices'
     },
@@ -79,4 +79,23 @@ test('should get soap response from soap request', async (t) => {
   t.truthy(response)
   t.is(response.status, 'ok')
   t.deepEqual(data, expectedData)
+})
+
+test('should not retry as default', async (t) => {
+  const scope = nock('http://api3.test')
+    .get('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
+    .once().reply(408)
+  const request = {
+    action: 'GET',
+    endpoint: {
+      uri: 'http://api3.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
+      path: 'GetPaymentMethodsResponse.GetPaymentMethodsResult'
+    }
+  }
+
+  const response = await adapter.send(request)
+
+  t.truthy(response)
+  t.is(response.status, 'timeout')
+  t.true(scope.isDone())
 })
