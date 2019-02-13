@@ -63,7 +63,10 @@ test('should return soap request without calling service', async (t) => {
     uri: 'http://api1.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
     method: 'post',
     body: soapBody,
-    headers: { 'Content-Type': 'text/xml' }
+    headers: {
+      'Content-Type': 'text/xml;charset=utf-8',
+      SOAPAction: 'http://api1.test/webservices/GetInvoices'
+    }
   }
 
   const serializedRequest = await adapter.serialize(request)

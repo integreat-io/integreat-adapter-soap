@@ -1,7 +1,7 @@
 module.exports = `<?xml version="1.0" encoding="utf-8"?>
 <env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
  <env:Body>
-  <p:itinerary xmlns:p="http://travelcompany.example.org/reservation/travel">
+  <p:itinerary xmlns:p="http://travelcompany.example.org/reservation/travel/">
    <p:departure>
     <p:departing>New York</p:departing>
     <p:arriving>Los Angeles</p:arriving>
@@ -15,7 +15,7 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
     <p:seatPreference/>
    </p:return>
   </p:itinerary>
-  <q:lodging xmlns:q="http://travelcompany.example.org/reservation/hotels">
+  <q:lodging xmlns:q="http://travelcompany.example.org/reservation/hotels/">
    <q:preference>none</q:preference>
   </q:lodging>
  </env:Body>
