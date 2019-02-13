@@ -13,15 +13,42 @@ test.after.always(() => {
 
 // Tests
 
-test('should get soap response and return js object', async (t) => {
+test('should get soap response and return js object for version 1.1', async (t) => {
   nock('http://api1.test')
-    .get('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
+    .post('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
     .reply(200, soapResponse)
   const request = {
     action: 'GET',
     endpoint: {
       uri: 'http://api1.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
       path: 'GetPaymentMethodsResponse.GetPaymentMethodsResult'
+    }
+  }
+  const expectedData = {
+    PaymentMethod: [
+      { Id: '1', Name: 'Cash' },
+      { Id: '2', Name: 'Invoice' }
+    ]
+  }
+
+  const response = await adapter.send(request)
+  const { data } = await adapter.normalize(response, request)
+
+  t.truthy(response)
+  t.is(response.status, 'ok')
+  t.deepEqual(data, expectedData)
+})
+
+test('should get soap response and return js object for version 1.2', async (t) => {
+  nock('http://api2.test')
+    .get('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
+    .reply(200, soapResponse)
+  const request = {
+    action: 'GET',
+    endpoint: {
+      uri: 'http://api2.test/Economy/InvoiceOrder/V001/InvoiceService.asmx',
+      path: 'GetPaymentMethodsResponse.GetPaymentMethodsResult',
+      soap: { version: '1.2' }
     }
   }
   const expectedData = {
@@ -88,7 +115,7 @@ test('should get soap response from soap request', async (t) => {
 
 test('should not retry as default', async (t) => {
   const scope = nock('http://api3.test')
-    .get('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
+    .post('/Economy/InvoiceOrder/V001/InvoiceService.asmx')
     .once().reply(408)
   const request = {
     action: 'GET',
