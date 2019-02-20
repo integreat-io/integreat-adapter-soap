@@ -1,6 +1,6 @@
 {
   "name": "integreat-adapter-soap",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "SOAP adapter for Integreat",
   "main": "index.js",
   "author": "Kjell-Morten Bratsberg Thorsen <post@kjellmorten.no>",
@@ -55,8 +55,8 @@
     "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.2",
     "nock": "^10.0.6",
-    "nyc": "^13.2.0",
-    "sinon": "^7.2.3",
+    "nyc": "^13.3.0",
+    "sinon": "^7.2.4",
     "standard": "^12.0.1"
   }
 }
