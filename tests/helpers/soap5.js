@@ -12,7 +12,7 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
     <p:departing>Los Angeles</p:departing>
     <p:arriving>New York</p:arriving>
     <p:departureDate>2001-12-20</p:departureDate>
-    <p:seatPreference/>
+    <p:seatPreference xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
    </p:return>
   </p:itinerary>
   <q:lodging xmlns:q="http://travelcompany.example.org/reservation/hotels/">

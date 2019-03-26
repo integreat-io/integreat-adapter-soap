@@ -1,5 +1,5 @@
 module.exports = `<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <soap:Body>
     <GetInvoicesResponse xmlns="http://api1.test/webservices">
       <GetInvoicesResult>
