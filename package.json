@@ -25,6 +25,9 @@
     "sources": [
       "lib/**/!(*-test).js",
       "index.js"
+    ],
+    "helpers": [
+      "**/helpers/**/*"
     ]
   },
   "nyc": {
@@ -52,12 +55,12 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "ava": "^1.4.1",
+    "ava": "^2.0.0",
     "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.3",
     "nock": "^10.0.6",
-    "nyc": "^13.3.0",
-    "sinon": "^7.3.1",
+    "nyc": "^14.1.1",
+    "sinon": "^7.3.2",
     "standard": "^12.0.1"
   }
 }
