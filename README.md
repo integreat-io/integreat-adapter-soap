@@ -24,17 +24,17 @@ npm install integreat-adapter-soap
 Example of use:
 ```javascript
 const integreat = require('integreat')
-const greatSoap = require('integreat-adapter-soap')
+const soapAdapter = require('integreat-adapter-soap')
 const defs = require('./config')
 
-const resources = greatSoap(integreat.resources())
+const resources = integreat.mergeResources(
+  integreat.resources(),
+  { adapters: { soap: soapAdapter() } }
+)
 const great = integreat(defs, resources)
 
 // ... and then dispatch actions as usual
 ```
-
-The `greatSoap()` function adds the adapter `soap` to the resources object, but
-you still need to configure your source to use it.
 
 Example source configuration:
 
@@ -54,6 +54,11 @@ Example source configuration:
 
 The `soapAuth` referenced here should be a valid auth object, relevant for this
 SOAP service.
+
+An optional logger may be provided to the `soapAdapter()` function, to log out
+the request sent to the service, and its response. The logger must be an object
+with an `info()` and an `error()` function. Both should accept a string message
+as first argument, and a meta object as the second.
 
 ### Running the tests
 
