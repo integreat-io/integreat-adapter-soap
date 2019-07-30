@@ -1,13 +1,13 @@
 {
   "name": "integreat-adapter-soap",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "description": "SOAP adapter for Integreat",
   "main": "index.js",
   "author": "Kjell-Morten Bratsberg Thorsen <post@kjellmorten.no>",
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
-    "test": "nyc --reporter=text-summary ava",
+    "test": "npm run lint && nyc --reporter=text-summary ava",
     "test:inspect": "node --inspect node_modules/ava/profile.js",
     "test:watch": "ava --watch",
     "dev": "npm run test:watch",
@@ -61,6 +61,6 @@
     "nock": "^10.0.6",
     "nyc": "^14.1.1",
     "sinon": "^7.3.2",
-    "standard": "^13.0.2"
+    "standard": "^13.1.0"
   }
 }
