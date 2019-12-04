@@ -1,6 +1,6 @@
 {
   "name": "integreat-adapter-soap",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "SOAP adapter for Integreat",
   "main": "index.js",
   "author": "Kjell-Morten Bratsberg Thorsen <post@kjellmorten.no>",
@@ -50,17 +50,16 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "dot-prop": "^5.1.0",
+    "dot-prop": "^5.2.0",
     "ramda": "^0.26.1",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
-    "babel-preset-env": "^1.7.0",
-    "coveralls": "^3.0.5",
-    "nock": "^10.0.6",
+    "ava": "^2.4.0",
+    "coveralls": "^3.0.9",
+    "nock": "^11.7.0",
     "nyc": "^14.1.1",
-    "sinon": "^7.3.2",
-    "standard": "^13.1.0"
+    "sinon": "^7.5.0",
+    "standard": "^14.3.1"
   }
 }
