@@ -47,7 +47,7 @@ Example source configuration:
     baseUri: 'https://api.soapheaven.com'
   },
   endpoints: [
-    {options: {uri: '/getDocuments'}}
+    { options: { uri: '/getDocuments' } }
   ]
 }
 ```
@@ -59,6 +59,10 @@ An optional logger may be provided to the `soapAdapter()` function, to log out
 the request sent to the service, and its response. The logger must be an object
 with an `info()` and an `error()` function. Both should accept a string message
 as first argument, and a meta object as the second.
+
+You may also override the `SOAPAction` by setting another namespace for it with
+`soapActionNamespace` or by replacing it entirely with `soapAction`. Both should
+be set on the `endpoint` object.
 
 ### Running the tests
 
