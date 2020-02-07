@@ -1,6 +1,6 @@
 {
   "name": "integreat-adapter-soap",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "SOAP adapter for Integreat",
   "main": "index.js",
   "author": "Kjell-Morten Bratsberg Thorsen <post@kjellmorten.no>",
