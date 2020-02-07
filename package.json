@@ -51,15 +51,15 @@
   "dependencies": {
     "debug": "^4.1.1",
     "dot-prop": "^5.2.0",
-    "ramda": "^0.26.1",
+    "ramda": "^0.27.0",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "ava": "^2.4.0",
     "coveralls": "^3.0.9",
-    "nock": "^11.7.0",
-    "nyc": "^14.1.1",
-    "sinon": "^7.5.0",
+    "nock": "^11.7.2",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1",
     "standard": "^14.3.1"
   }
 }
