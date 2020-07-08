@@ -17,17 +17,10 @@
     "lint": "standard"
   },
   "ava": {
+    "babel": true,
     "files": [
       "lib/**/*-test.js",
-      "tests/**/*-test.js",
-      "tests/helpers/*.js"
-    ],
-    "sources": [
-      "lib/**/!(*-test).js",
-      "index.js"
-    ],
-    "helpers": [
-      "**/helpers/**/*"
+      "tests/**/*-test.js"
     ]
   },
   "nyc": {
@@ -55,11 +48,12 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
-    "coveralls": "^3.0.9",
-    "nock": "^11.7.2",
-    "nyc": "^15.0.0",
-    "sinon": "^8.1.1",
-    "standard": "^14.3.1"
+    "@ava/babel": "^1.0.1",
+    "ava": "^3.10.1",
+    "coveralls": "^3.1.0",
+    "nock": "^13.0.2",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.2",
+    "standard": "^14.3.4"
   }
 }
