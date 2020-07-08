@@ -64,6 +64,15 @@ You may also override the `SOAPAction` by setting another namespace for it with
 `soapActionNamespace` or by replacing it entirely with `soapAction`. Both should
 be set on the `endpoint` object.
 
+Available endpoint options:
+
+- `uri`: The uri to send requests to for this endpoint.
+- `baseUri`: An option base uri prepended to `uri`.
+- `soap.version`: The SOAP version of the service. Default is `1.1`.
+- `retries`: Number of times to retry a request. Default is `0`.
+- `timeout`: Milliseconds to wait until a request is timed out. Default is
+  `120000`.
+
 ### Running the tests
 
 The tests can be run with `npm test`.
