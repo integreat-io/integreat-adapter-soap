@@ -44,7 +44,8 @@ Example source configuration:
   adapter: 'soap',
   auth: 'soapAuth',
   options: {
-    baseUri: 'https://api.soapheaven.com'
+    baseUri: 'https://api.soapheaven.com',
+    soap: { version: '1.1', xsiPrefix: 'i' }
   },
   endpoints: [
     { options: { uri: '/getDocuments' } }
@@ -62,7 +63,10 @@ as first argument, and a meta object as the second.
 
 You may also override the `SOAPAction` by setting another namespace for it with
 `soapActionNamespace` or by replacing it entirely with `soapAction`. Both should
-be set on the `endpoint` object.
+be set on the `options` object.
+
+Set `xsiPrefix` on `options.soap` to override the default xsi namespace (the
+default is `xsi`).
 
 Available endpoint options:
 
