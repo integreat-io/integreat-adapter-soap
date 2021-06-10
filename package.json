@@ -7,14 +7,13 @@
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
-    "test": "npm run lint && nyc --reporter=text-summary ava",
+    "test": "nyc --reporter=text-summary ava",
     "test:inspect": "node --inspect node_modules/ava/profile.js",
     "test:watch": "ava --watch",
     "dev": "npm run test:watch",
-    "prebuild": "npm run lint && npm run test",
+    "prebuild": "npm run test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "nyc:report": "nyc report",
-    "lint": "standard"
+    "nyc:report": "nyc report"
   },
   "ava": {
     "babel": true,
@@ -53,7 +52,6 @@
     "coveralls": "^3.1.0",
     "nock": "^13.0.8",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.4",
-    "standard": "^14.3.4"
+    "sinon": "^9.2.4"
   }
 }
