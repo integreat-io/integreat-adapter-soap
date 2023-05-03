@@ -1,5 +1,9 @@
 # SOAP adapter for Integreat
 
+> This package is no longer relevant. It has been replace by
+> [integreat-transporter-http](https://github.com/integreat-io/integreat-transporter-http)
+> and [integreat-adapter-xml](https://github.com/integreat-io/integreat-adapter-xml).
+
 Adapter that lets
 [Integreat](https://github.com/integreat-io/integreat) use a SOAP service.
 
@@ -22,15 +26,15 @@ npm install integreat-adapter-soap
 ```
 
 Example of use:
+
 ```javascript
 const integreat = require('integreat')
 const soapAdapter = require('integreat-adapter-soap')
 const defs = require('./config')
 
-const resources = integreat.mergeResources(
-  integreat.resources(),
-  { adapters: { soap: soapAdapter() } }
-)
+const resources = integreat.mergeResources(integreat.resources(), {
+  adapters: { soap: soapAdapter() },
+})
 const great = integreat(defs, resources)
 
 // ... and then dispatch actions as usual
